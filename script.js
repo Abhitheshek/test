@@ -1,177 +1,154 @@
-// 1. Variable declaration errors
-let name = "Abhishek";
-let age = 20;
-age = 21; // Corrected: Removed redeclaration of 'age' with let
+# Converted Python version of the original JavaScript examples
 
-const city = "Delhi";
-// city = "Noida"; // Corrected: Removed reassignment of const variable
+# 1. Variable declaration errors
+name = "Abhishek"
+age = 20
+age = 21  # Reassignment is allowed in Python
 
-// 2. Undefined variables
-let username = "testUser"; // Corrected: Defined username
-let userAge = 30; // Corrected: Defined userAge
-console.log(username);
-console.log(userAge);
+city = "Delhi"
+# city = "Noida"  # Reassignment is allowed, but keeping original value
 
-// 3. Data type errors
-let num = "100";
-let result = parseInt(num) + 50; // Corrected: Converted num to integer
-console.log(result);
+# 2. Undefined variables
+username = "testUser"
+user_age = 30
+print(username)
+print(user_age)
 
-let value = null;
-if (value !== null) { // Corrected: Added null check
-    console.log(value.length);
-} else {
-    console.log("Value is null, cannot get length.");
-}
+# 3. Data type errors
+num = "100"
+result = int(num) + 50
+print(result)
 
-// 4. Function errors
-function add(a, b) {
-    return a + b; // Corrected: Changed 'c' to 'b'
-}
+value = None
+if value is not None:
+    print(len(value))
+else:
+    print("Value is null, cannot get length.")
 
-console.log(add(10, 20));
+# 4. Function errors
+def add(a, b):
+    return a + b
 
-// 5. Incorrect function calling
-function greet(name) {
-    console.log("Hello " + name);
-}
+print(add(10, 20))
 
-greet("John"); // Corrected: Provided argument for greet function
+# 5. Incorrect function calling
+def greet(name):
+    print("Hello " + name)
 
-// 6. Array errors
-let numbers = [10, 20, 30, 40];
+greet("John")
 
-// console.log(numbers[10]); // Corrected: Removed out-of-bounds access
-console.log(numbers[0]); // Example of valid access
+# 6. Array errors
+numbers = [10, 20, 30, 40]
+# print(numbers[10])  # Out-of-bounds would raise IndexError
+print(numbers[0])
 
-numbers.push(50);
-numbers.pop(); // Corrected: pop() does not take arguments
+numbers.append(50)
+numbers.pop()  # pop() removes last element
+print(numbers)
 
-console.log(numbers);
-
-// 7. Object errors
-let student = {
-    name: "Abhishek",
-    age: 20,
-    course: "BTech",
-    address: { // Corrected: Added address object
-        city: "Delhi"
-    }
-};
-
-console.log(student.name);
-console.log(student.address.city); // Corrected: Accessing existing property
-
-// 8. Loop errors
-for (let i = 0; i <= 5; i++) { // Corrected: Changed i-- to i++
-    console.log(i);
-}
-
-// 9. Conditional errors
-let marks = 85;
-
-if (marks === 90) { // Corrected: Changed assignment to comparison operator
-    console.log("Excellent");
-} else {
-    console.log("Good");
-}
-
-// 10. String errors
-let firstName = "Abhishek";
-let lastName = "Yadav";
-
-console.log(firstName + " " + lastName); // Corrected: Case sensitivity and added space
-
-// 11. Arrow function errors
-const multiply = (a, b) => {
-    return a * b; // Corrected: Added return statement
-};
-
-console.log(multiply(5, 10));
-
-// 12. Promise errors
-let promise = new Promise((resolve, reject) => {
-    resolve("Success");
-});
-
-promise.then((data) => {
-    console.log(data); // Corrected: Changed 'result' to 'data'
-});
-
-// 13. Async/Await errors
-async function getData() {
-    try {
-        let response = await fetch("https://api.github.com/users/octocat"); // Corrected: Valid URL
-        let data = await response.json(); // Corrected: Await response.json()
-        console.log(data);
-    } catch (error) {
-        console.error("Error fetching data:", error);
+# 7. Object errors
+student = {
+    "name": "Abhishek",
+    "age": 20,
+    "course": "BTech",
+    "address": {
+        "city": "Delhi"
     }
 }
+print(student["name"])
+print(student["address"]["city"])
 
-getData();
+# 8. Loop errors
+for i in range(0, 6):  # 0 to 5 inclusive
+    print(i)
 
-// 14. Scope errors
-function test() {
-    let x = 100;
-    console.log(x); // Corrected: Moved console.log(x) inside the function
+# 9. Conditional errors
+marks = 85
+if marks == 90:
+    print("Excellent")
+else:
+    print("Good")
+
+# 10. String errors
+first_name = "Abhishek"
+last_name = "Yadav"
+print(first_name + " " + last_name)
+
+# 11. Arrow function errors (using lambda)
+multiply = lambda a, b: a * b
+print(multiply(5, 10))
+
+# 12. Promise errors (simulated with a simple function)
+def simple_promise():
+    return "Success"
+
+promise_result = simple_promise()
+print(promise_result)
+
+# 13. Async/Await errors (using requests for simplicity)
+import requests
+
+def get_data():
+    try:
+        response = requests.get("https://api.github.com/users/octocat")
+        data = response.json()
+        print(data)
+    except Exception as error:
+        print("Error fetching data:", error)
+
+get_data()
+
+# 14. Scope errors
+def test():
+    x = 100
+    print(x)
+
+test()
+
+# 15. Type conversion errors
+a = "10"
+b = 5
+print(int(a) - b)
+print(int(a) * b)
+# print(a / "hello")  # Invalid operation
+print(int(a) / 2)
+
+# 16. Comparison errors
+print(10 == "10")  # False, different types
+print(10 == int("10"))  # True after conversion
+print(None == None)  # True
+print(float('nan') == float('nan'))  # False
+
+# 17. Logical errors
+x = 10
+y = 20
+if x > 5 or y < 10:
+    print("Condition true")
+
+# 18. Class errors
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    def show_age(self):
+        print(self.age)
+
+p = Person("Alice", 30)
+p.show_age()
+
+# 19. Destructuring errors
+user = {
+    "username": "abhi",
+    "password": "12345"
 }
+user_name = user["username"]
+print(user_name)
 
-test(); // Call the function to execute it
+# 20. Recursive function error
 
-// 15. Type conversion errors
-let a = "10";
-let b = 5;
+def factorial(n):
+    if n == 0:
+        return 1
+    return n * factorial(n - 1)
 
-console.log(a - b);
-console.log(a * b);
-// console.log(a / "hello"); // Corrected: Removed division by non-numeric string
-console.log(a / 2); // Example of valid division
-
-// 16. Comparison errors
-console.log(10 == "10");
-console.log(10 === "10");
-console.log(null == undefined);
-console.log(NaN === NaN); // This will still be false, as NaN is never equal to itself
-
-// 17. Logical errors
-let x = 10;
-let y = 20;
-
-if (x > 5 || y < 10) {
-    console.log("Condition true");
-}
-
-// 18. Class errors
-class Person {
-    constructor(name, age) { // Corrected: Added age to constructor
-        this.name = name;
-        this.age = age;
-    }
-
-    showAge() {
-        console.log(this.age);
-    }
-}
-
-let p = new Person("Alice", 30); // Corrected: Provided arguments to constructor
-p.showAge();
-
-// 19. Destructuring errors
-let user = {
-    username: "abhi",
-    password: "12345"
-};
-
-let { username: userName } = user; // Corrected: Changed 'name' to 'username'
-console.log(userName);
-
-// 20. Recursive function error
-function factorial(n) {
-    if (n === 0) { // Corrected: Added base case
-        return 1;
-    }
-    return n * factorial(n - 1);
-}
-
-console.log(factorial(5));
+print(factorial(5))
